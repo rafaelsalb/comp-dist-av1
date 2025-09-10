@@ -28,7 +28,8 @@ def disponibilidade_vec(
     p - prob de um servidor estar up, 0 <= p <= 1
     X - número de servidores disponíveis em um dado momento
     """
-    assert len(n) == len(k) == len(p), f"n, k e p devem ter o mesmo tamanho. n: {len(n)}, k: {len(k)}, p: {len(p)}"
+    assert n.shape == k.shape == p.shape, f"n, k e p devem ter o mesmo tamanho. n: {len(n)}, k: {len(k)}, p: {len(p)}"
+    print(n.shape, k.shape, p.shape)
     prob = np.zeros_like(p)
     for case in range(len(n)):
         for i in range(n[case] - k[case] + 1):
